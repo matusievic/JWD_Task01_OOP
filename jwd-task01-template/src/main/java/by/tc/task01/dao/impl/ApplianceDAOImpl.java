@@ -27,7 +27,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
                 boolean isFound = true;
                 //looking for each criteria
                 for (Map.Entry<E, Object> e : entrySet) {
-                    if (!currentLine.contains(e.getKey().toString() + "=" + e.getValue())) {
+                    if (!currentLine.contains(e.getKey().toString() + "=" + e.getValue() + ", ") && !currentLine.contains(e.getKey().toString() + "=" + e.getValue() + ";") && !currentLine.contains(e.getKey().toString() + "=" + e.getValue() + "\n")) {
                         isFound = false;
                         break;
                     }
