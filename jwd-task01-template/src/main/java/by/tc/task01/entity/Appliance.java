@@ -1,5 +1,7 @@
 package by.tc.task01.entity;
 
-public class Appliance {
+import java.io.Serializable;
+
+public class Appliance implements Serializable{
 	// you may add your own code here
 }

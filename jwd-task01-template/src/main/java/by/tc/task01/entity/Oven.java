@@ -59,4 +59,37 @@ public class Oven extends Appliance{
     public void setWidth(double width) {
         this.width = width;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) { return true; }
+        if (obj == null || getClass() != obj.getClass()) { return false; }
+
+        Oven oven = (Oven) obj;
+        if (powerConsumption != oven.powerConsumption) { return false; }
+        if (weight != oven.weight) { return false; }
+        if (capacity != oven.capacity) { return false; }
+        if (depth != oven.depth) { return false; }
+        if (height != oven.height) { return false; }
+        if (width != oven.width) { return false; }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        double hash = powerConsumption;
+        hash = 31 * hash + weight;
+        hash = 31 * hash + capacity;
+        hash = 31 * hash + depth;
+        hash = 31 * hash + height;
+        hash = 31 * hash + width;
+        return (int) hash;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + '@' + "powerConsumption: " + powerConsumption + ", weight: " + weight + ", capacity: " + capacity
+                + ", depth: " + depth + ", height: " + height + ", width: " + width;
+    }
 }

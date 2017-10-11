@@ -1,5 +1,7 @@
 package by.tc.task01.entity;
 
+import java.util.Objects;
+
 public class Laptop extends Appliance {
     // you may add your own code here
     private double batteryCapacity;
@@ -63,34 +65,36 @@ public class Laptop extends Appliance {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
+        if (this == obj) { return true; }
+        if (obj == null || getClass() != obj.getClass()) { return false; }
 
         Laptop laptop = (Laptop) obj;
-        if (batteryCapacity != laptop.batteryCapacity) {
-            return false;
-        } else if (memoryROM != laptop.memoryROM) {
-            return false;
-        } else if (systemMemory != laptop.systemMemory) {
-            return false;
-        } else if (cpu != laptop.cpu) {
-            return false;
-        } else if (displayInchs != laptop.displayInchs) {
-            return false;
-        }
-        if (os != null) {
-            if (!os.equals(laptop.os)) {
-                return false;
-            }
-        }
+        if (batteryCapacity != laptop.batteryCapacity) { return false; }
+        if (memoryROM != laptop.memoryROM) { return false; }
+        if (systemMemory != laptop.systemMemory) { return false; }
+        if (cpu != laptop.cpu) { return false; }
+        if (displayInchs != laptop.displayInchs) { return false; }
+        if (!Objects.equals(os, laptop.os)) { return false; }
 
         return true;
+    }
+
+
+    @Override
+    public int hashCode() {
+        double hash = batteryCapacity;
+        hash = 31 * hash + Objects.hashCode(os);
+        hash = 31 * hash + memoryROM;
+        hash = 31 * hash + systemMemory;
+        hash = 31 * hash + cpu;
+        hash = 31 * hash + displayInchs;
+        return (int) hash;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + '@' + "batteryCapacity: " + batteryCapacity + ", os: " + os
+               + ", memoryROM: " + memoryROM + ", systemMemory: " + systemMemory + ", cpu: " + cpu
+               + ", dispayInchs: " + displayInchs;
     }
 }
