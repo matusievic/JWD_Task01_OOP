@@ -19,7 +19,11 @@ public class Criteria<E> {
 		return criteria.entrySet();
 	}
 
-    public String getApplianceType() {
+	public Map<E, Object> getCriteria() {
+		return new HashMap<>(criteria);
+	}
+
+	public String getApplianceType() {
         return applianceType;
     }
 

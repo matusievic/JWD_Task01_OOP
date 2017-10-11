@@ -6,8 +6,8 @@ public class Validator {
 	
 	public static <E> boolean criteriaValidator(Criteria<E> criteria) {
 		// you may add your own code here
-		
-		return true;
+		if (criteria == null || criteria.getEntrySet().isEmpty()) { return false; }
+		return ApplianceValidator.validate(criteria.getApplianceType()).execute(criteria.getCriteria());
 	}
 }
 

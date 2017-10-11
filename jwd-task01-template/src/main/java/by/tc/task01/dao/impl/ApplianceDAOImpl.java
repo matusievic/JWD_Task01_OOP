@@ -1,7 +1,7 @@
 package by.tc.task01.dao.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
-import by.tc.task01.entity.*;
+import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.service.creation.ApplianceDirector;
 
